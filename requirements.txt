@@ -4,4 +4,4 @@ gtts
 langchain
 translate
 huggingface_hub
-google-trans-new
+translate
