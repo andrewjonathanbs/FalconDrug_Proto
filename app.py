@@ -48,9 +48,9 @@ with c2:
 if text:       
     state.text_received.append(text)
     for text in state.text_received:
-        question = translator1.translate(text)
+        question = translator2.translate(text)
         answer = llm_chain.run(question)
-        trans_answer = translator2.translate(answer)
+        trans_answer = translator1.translate(answer)
         obj = gTTS(text=trans_answer, lang=language, slow=False)
         obj.save('trans.mp3')
         audio_file = open('trans.mp3', 'rb')
