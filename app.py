@@ -19,7 +19,7 @@ llm = HuggingFaceHub(huggingfacehub_api_token='hf_KvGxCqmpHkOORBGJVvTSQCgzntGVXl
 template = """Question: {question}
 Answer based on this context below.
 
-You are a chatbot designed to perform telepharmacy services by answering questions about drug information."""
+You are a chatbot designed to perform telepharmacy services by answering questions about drug information and response in Indonesian language."""
 
 prompt = PromptTemplate(template=template, input_variables=["question"])
 llm_chain = LLMChain(prompt=prompt, llm=llm, verbose=True)
@@ -48,10 +48,8 @@ with c2:
 if text:       
     state.text_received.append(text)
     for text in state.text_received:
-        question = translator2.translate(text)
-        answer = llm_chain.run(question)
-        trans_answer = translator1.translate(answer)
-        obj = gTTS(text=trans_answer, lang=language, slow=False)
+        answer = llm_chain.run(text)
+        obj = gTTS(text=answer, lang=language, slow=False)
         obj.save('trans.mp3')
         audio_file = open('trans.mp3', 'rb')
         audio_bytes = audio_file.read()
