@@ -60,7 +60,7 @@ if text:
     for text in state.text_received:
         answer = llm_chain.run(text)
         answer = query2(answer)
-        obj = gTTS(text=str(answer), lang=language, slow=False)
+        obj = gTTS(text=answer, lang=language, slow=False)
         obj.save('trans.mp3')
         audio_file = open('trans.mp3', 'rb')
         audio_bytes = audio_file.read()
