@@ -9,7 +9,7 @@ import os
 
 HUGGINGFACEHUB_API_TOKEN = os.getenv('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')
 repo_id = "tiiuae/falcon-7b-instruct"
-llm = HuggingFaceHub(huggingfacehub_api_token='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',
+llm = HuggingFaceHub(huggingfacehub_api_token='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',
                      repo_id=repo_id,
                      model_kwargs={"temperature":0.7, "max_new_tokens":500})
 
