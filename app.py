@@ -5,11 +5,7 @@ import langchain
 from langchain.llms import HuggingFaceHub
 from langchain import PromptTemplate, LLMChain
 import os
-from translate import Translator
-from polyglot.text import Text, Word
 language = "id"
-translator1= Translator(to_lang="id")
-translator2 = Translator(to_lang="en")
 
 import requests
 
