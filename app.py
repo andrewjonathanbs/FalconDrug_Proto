@@ -6,9 +6,31 @@ from langchain.llms import HuggingFaceHub
 from langchain import PromptTemplate, LLMChain
 import os
 from translate import Translator
+from polyglot.text import Text, Word
 language = "id"
 translator1= Translator(to_lang="id")
 translator2 = Translator(to_lang="en")
+
+import requests
+
+API_URL2 = "https://api-inference.huggingface.co/models/google/madlad400-10b-mt"
+headers = {"Authorization": "Bearer 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"}
+
+def query2(payload):
+	response = requests.post(API_URL2, headers=headers, json=payload+'translate this to Indonesian language')
+	return response.json()
+
+HUGGINGFACEHUB_API_TOKEN = os.getenv('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')
+repo_2 = "google/madlad400-10b-mt"
+llm2 = HuggingFaceHub(huggingfacehub_api_token='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',
+                     repo_id=repo_2,
+                     model_kwargs={"temperature":0.7, "max_new_tokens":500})
+
+template2 = """Question: {question}
+Translate this into Indonesian language."""
+
+prompt2 = PromptTemplate(template=template2, input_variables=["question"])
+llm_chain2 = LLMChain(prompt=prompt2, llm=llm2, verbose=True)
 
 HUGGINGFACEHUB_API_TOKEN = os.getenv('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')
 repo_id = "tiiuae/falcon-7b-instruct"
@@ -49,6 +71,7 @@ if text:
     state.text_received.append(text)
     for text in state.text_received:
         answer = llm_chain.run(text)
+        answer = llm_chain2.run(answer)
         obj = gTTS(text=answer, lang=language, slow=False)
         obj.save('trans.mp3')
         audio_file = open('trans.mp3', 'rb')
