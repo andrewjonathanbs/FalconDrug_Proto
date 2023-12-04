@@ -4,7 +4,7 @@ from gtts import gTTS
 import langchain
 from langchain.llms import HuggingFaceHub
 from langchain import PromptTemplate, LLMChain
-from translate import Translator
+from googletrans import Translator
 import os
 
 HUGGINGFACEHUB_API_TOKEN = os.getenv('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')
@@ -22,8 +22,7 @@ There's a possibilty for you to get input in english language, if so you can rep
 
 prompt = PromptTemplate(template=template, input_variables=["question"])
 llm_chain = LLMChain(prompt=prompt, llm=llm, verbose=True)
-translator = Translator(from_lang="ID",to_lang="EN")
-translator_1 = Translator(from_lang='EN',to_lang='ID')
+translator = Translator()
 language = 'id'
 
 state=st.session_state
@@ -50,9 +49,9 @@ with c2:
 if text:       
     state.text_received.append(text)
     for text in state.text_received:
-        question = translator.translate(text)
+        question = translator.translate(text, src = 'id')
         answer = llm_chain.run(question)
-        trans_answer = translator_1.translate(answer)
+        trans_answer = translator.translate(answer, dest = 'id')
         obj = gTTS(text=trans_answer, lang=language, slow=False)
         obj.save('trans.mp3')
         audio_file = open('trans.mp3', 'rb')
