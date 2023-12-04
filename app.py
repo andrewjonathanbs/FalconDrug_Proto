@@ -48,6 +48,8 @@ st.write("Please go easy and wait patiently for the LLM to load if it took a lon
 st.write("Usually, it's fast but sometimes it load the responses slowly.")
 st.write("The AI can understand both English and Indonesian, but answers in Indonesian.")
 
+command = 'translate this into Indonesian language'
+
 c1,c2=st.columns(2)
 with c1:
     st.write("Feel free to ask me something about drugs.")
@@ -58,8 +60,8 @@ if text:
     state.text_received.append(text)
     for text in state.text_received:
         answer = llm_chain.run(text)
-	answer = answer + 'translate this into Indonesian language'
-        answer = query(answer)
+	answer = answer + command
+        answer = query2(answer)
         obj = gTTS(text=answer, lang=language, slow=False)
         obj.save('trans.mp3')
         audio_file = open('trans.mp3', 'rb')
