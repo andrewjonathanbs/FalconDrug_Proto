@@ -50,7 +50,7 @@ if text:
     state.text_received.append(text)
     for text in state.text_received:
 	    translation = translator.translate(text)
-            answer = llm_chain.run(translation)
+	    answer = llm_chain.run(translation)
 	    trans_answer = trans_answer = translator_1.translate(answer)
 	    obj = gTTS(answer, lang=language, slow=False)
 	    obj.save('trans.mp3')
