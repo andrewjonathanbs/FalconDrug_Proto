@@ -34,7 +34,7 @@ if 'text_received' not in state:
 st.title('Falcon Drug Prototype')
 st.write("This is the prototype of FalconDrug, a LLM created for telepharmacy services.")
 st.write("Although the product is functional, it still needs more data to be a high quality telepharmacy model.")
-st.write("Please go easy and wait patiently for the LLM to load if it took a long time to load."
+st.write("Please go easy and wait patiently for the LLM to load if it took a long time to load.")
 st.write("Usually, it's fast but sometimes it load the responses slowly.")
 st.write("The AI can understand both English and Indonesian, but it responds with Indonesian language.")
 
