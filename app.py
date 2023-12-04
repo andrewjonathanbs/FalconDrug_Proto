@@ -31,15 +31,18 @@ state=st.session_state
 if 'text_received' not in state:
     state.text_received=[]
 
-st.title('Uji Coba Prototype FalconDrug')
-st.write("Berikut adalah aplikasi prototype dari FalconDrug yang dapat digunakan untuk berbicara dengan AI terkait kefarmasian.")
-st.write("Harap sabar menunggu respons karena aplikasi ini masih memiliki waktu loading yang cukup lama.")
+st.title('Falcon Drug Prototype')
+st.write("This is the prototype of FalconDrug, a LLM created for telepharmacy services.")
+st.write("Although the product is functional, it still needs more data to be a high quality telepharmacy model.")
+st.write("Please go easy and wait patiently for the LLM to load if it took a long time to load."
+st.write("Usually, it's fast but sometimes it load the responses slowly.")
+st.write("The AI can understand both English and Indonesian, but it responds with Indonesian language.")
 
 st.image('og-image.jpg')
 
 c1,c2=st.columns(2)
 with c1:
-    st.write("Silahkan berbicara denganku!")
+    st.write("Feel free to ask me something about drugs.")
 with c2:
     text=speech_to_text(language='id',use_container_width=True,just_once=True,key='STT')
 
