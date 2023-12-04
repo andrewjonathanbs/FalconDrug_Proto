@@ -4,3 +4,4 @@ gtts
 langchain
 huggingface_hub
 polyglot
+request
