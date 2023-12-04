@@ -4,3 +4,4 @@ gtts
 langchain
 translate
 huggingface_hub
+googletrans
