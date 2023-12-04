@@ -5,3 +5,4 @@ langchain
 huggingface_hub
 polyglot
 requests
+SpeechRecognition
