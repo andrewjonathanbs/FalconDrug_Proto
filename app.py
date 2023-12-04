@@ -7,17 +7,6 @@ from langchain import PromptTemplate, LLMChain
 import os
 language = "en"
 
-import requests
-API_URL2 = "https://api-inference.huggingface.co/models/Helsinki-NLP/opus-mt-en-id"
-headers = {"Authorization": "Bearer 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"}
-
-def query2(payload):
-	response = requests.post(API_URL2, headers=headers, json=payload)
-	return response.json()
-
-template2 = """Question: {question}
-Translate this into Indonesian language."""
-
 HUGGINGFACEHUB_API_TOKEN = os.getenv('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')
 repo_id = "tiiuae/falcon-7b-instruct"
 llm = HuggingFaceHub(huggingfacehub_api_token='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',
@@ -47,8 +36,6 @@ st.write("Please go easy and wait patiently for the LLM to load if it took a lon
 st.write("Usually, it's fast but sometimes it load the responses slowly.")
 st.write("The AI can understand both English and Indonesian, but answers in Indonesian.")
 
-command = ' translate this into Indonesian language'
-
 c1,c2=st.columns(2)
 with c1:
     st.write("Feel free to ask me something about drugs.")
@@ -59,7 +46,8 @@ if text:
     state.text_received.append(text)
     for text in state.text_received:
         answer = llm_chain.run(text)
-        obj = gTTS(text=answer, lang=language, slow=False)
+	answer2 = str(answer)
+	obj = gTTS(text=answer2, lang=language, slow=False)
         obj.save('trans.mp3')
         audio_file = open('trans.mp3', 'rb')
         audio_bytes = audio_file.read()
