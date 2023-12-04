@@ -19,9 +19,7 @@ llm = HuggingFaceHub(huggingfacehub_api_token='hf_KvGxCqmpHkOORBGJVvTSQCgzntGVXl
 template = """Question: {question}
 Answer based on this context below.
 
-You are a chatbot designed to perform telepharmacy services by answering questions about drug information. You will get input in Indonesian language and you have to reply in Indonesian language.
-There's a possibilty for you to get input in english language, if so you can reply in english or Indonesia, depending on the user's preference.
-"""
+You are a chatbot designed to perform telepharmacy services by answering questions about drug information."""
 
 prompt = PromptTemplate(template=template, input_variables=["question"])
 llm_chain = LLMChain(prompt=prompt, llm=llm, verbose=True)
