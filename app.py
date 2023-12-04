@@ -8,8 +8,7 @@ import os
 language = "id"
 
 import requests
-
-API_URL2 = "https://api-inference.huggingface.co/models/google/madlad400-10b-mt"
+API_URL2 = "https://api-inference.huggingface.co/models/facebook/mbart-large-50-many-to-many-mmt"
 headers = {"Authorization": "Bearer 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"}
 
 def query2(payload):
