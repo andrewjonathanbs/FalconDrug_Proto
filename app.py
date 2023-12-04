@@ -9,7 +9,6 @@ import speech_recognition as sr
 from translate import Translator
 translator = Translator(from_lang="ID",to_lang="EN")
 translator_1 = Translator(from_lang='EN',to_lang='ID')
-language = 'en'
 
 HUGGINGFACEHUB_API_TOKEN = os.getenv('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')
 repo_id = "tiiuae/falcon-7b-instruct"
@@ -51,8 +50,8 @@ if text:
     for text in state.text_received:
 	    translation = translator.translate(text)
 	    answer = llm_chain.run(translation)
-	    trans_answer = trans_answer = translator_1.translate(answer)
-	    obj = gTTS(answer, lang=language, slow=False)
+	    trans_answer = translator_1.translate(answer)
+	    obj = gTTS(trans_answer, lang='id', slow=False)
 	    obj.save('trans.mp3')
 	    audio_file = open('trans.mp3', 'rb')
 	    audio_bytes = audio_file.read()
