@@ -9,7 +9,7 @@ import speech_recognition as sr
 from translate import Translator
 translator = Translator(from_lang="ID",to_lang="EN")
 translator_1 = Translator(from_lang='EN',to_lang='ID')
-language = 'id'
+language = 'en'
 
 HUGGINGFACEHUB_API_TOKEN = os.getenv('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')
 repo_id = "tiiuae/falcon-7b-instruct"
