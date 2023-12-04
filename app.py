@@ -17,7 +17,7 @@ llm = HuggingFaceHub(huggingfacehub_api_token='hf_KvGxCqmpHkOORBGJVvTSQCgzntGVXl
                      model_kwargs={"temperature":0.7, "max_new_tokens":500})
 
 template = """Question: {question}
-Answer the question based on this prompt:
+Answer the question in Indonesian language based on this information:
 
 You're an INDONESIAN AI that is created to give INDONESIAN people proper health and medicine information in INDONESIAN LANGUAGE."""
 
@@ -37,7 +37,7 @@ st.image('og-image.jpg')
 
 st.write("Please go easy and wait patiently for the LLM to load if it took a long time to load.")
 st.write("Usually, it's fast but sometimes it load the responses slowly.")
-st.write("The AI can understand both English and Indonesian, but it responds with Indonesian language.")
+st.write("The AI can understand both English and Indonesian, but answers in Indonesian.")
 
 c1,c2=st.columns(2)
 with c1:
