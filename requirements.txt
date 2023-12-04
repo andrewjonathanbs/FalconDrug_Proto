@@ -3,3 +3,4 @@ streamlit_mic_recorder
 gtts
 langchain
 translate
+huggingface_hub
