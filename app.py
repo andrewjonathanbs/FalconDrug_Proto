@@ -5,7 +5,7 @@ import langchain
 from langchain.llms import HuggingFaceHub
 from langchain import PromptTemplate, LLMChain
 import os
-language = "en"
+language = "id"
 
 HUGGINGFACEHUB_API_TOKEN = os.getenv('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')
 repo_id = "tiiuae/falcon-7b-instruct"
