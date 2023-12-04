@@ -16,10 +16,10 @@ llm = HuggingFaceHub(huggingfacehub_api_token='hf_KvGxCqmpHkOORBGJVvTSQCgzntGVXl
                      repo_id=repo_id,
                      model_kwargs={"temperature":0.7, "max_new_tokens":500})
 
-template = """Pertanyaan: {question}
-Jawab pertanyaan ini berdasarkan konsep berikut.
+template = """Question: {question}
+Answer the question based on this prompt:
 
-Kamu adalah AI yang dibuat untuk memberikan informasi medis kepada pasien yang membutuhkan informasi medis secara cepat."""
+You're an INDONESIAN AI that is created to give INDONESIAN people proper health and medicine information in INDONESIAN LANGUAGE."""
 
 prompt = PromptTemplate(template=template, input_variables=["question"])
 llm_chain = LLMChain(prompt=prompt, llm=llm, verbose=True)
