@@ -3,4 +3,3 @@ streamlit_mic_recorder
 gtts
 langchain
 translate
-os
