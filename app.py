@@ -5,7 +5,7 @@ import langchain
 from langchain.llms import HuggingFaceHub
 from langchain import PromptTemplate, LLMChain
 import os
-language = "id"
+language = "en"
 
 import requests
 API_URL2 = "https://api-inference.huggingface.co/models/Helsinki-NLP/opus-mt-en-id"
@@ -59,7 +59,6 @@ if text:
     state.text_received.append(text)
     for text in state.text_received:
         answer = llm_chain.run(text)
-        answer = query2(answer)
         obj = gTTS(text=answer, lang=language, slow=False)
         obj.save('trans.mp3')
         audio_file = open('trans.mp3', 'rb')
