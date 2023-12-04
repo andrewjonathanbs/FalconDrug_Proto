@@ -18,9 +18,9 @@ llm = HuggingFaceHub(huggingfacehub_api_token='hf_KvGxCqmpHkOORBGJVvTSQCgzntGVXl
                      model_kwargs={"temperature":0.7, "max_new_tokens":500})
 
 template = """Question: {question}
-Answer the question in Indonesian language based on this information:
+Answer the question based on this information:
 
-You're an INDONESIAN AI that is created to give INDONESIAN people proper health and medicine information in INDONESIAN LANGUAGE."""
+You're a chatbot that is created to give people proper health and medicine information."""
 
 prompt = PromptTemplate(template=template, input_variables=["question"])
 llm_chain = LLMChain(prompt=prompt, llm=llm, verbose=True)
