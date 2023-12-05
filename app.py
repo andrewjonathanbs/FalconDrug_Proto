@@ -6,7 +6,7 @@ from langchain.llms import HuggingFaceHub
 from langchain import PromptTemplate, LLMChain
 import os
 import speech_recognition as sr
-from translate import Translator
+from translator import Translator
 
 translator = Translator(from_lang="ID",to_lang="EN")
 translator_1 = Translator(from_lang='EN',to_lang='ID')
