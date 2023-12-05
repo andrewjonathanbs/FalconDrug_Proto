@@ -6,9 +6,12 @@ from langchain.llms import HuggingFaceHub
 from langchain import PromptTemplate, LLMChain
 import os
 import speech_recognition as sr
-from googletrans import Translator
+from translate import Translator
 
-translator = Translator()
+translator = Translator(from_lang="ID",to_lang="EN")
+translator_1 = Translator(from_lang='EN',to_lang='ID')
+language = 'id'
+
 HUGGINGFACEHUB_API_TOKEN = os.getenv('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')
 repo_id = "tiiuae/falcon-7b-instruct"
 llm = HuggingFaceHub(huggingfacehub_api_token='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',
@@ -47,9 +50,9 @@ with c2:
 if text:       
     state.text_received.append(text)
     for text in state.text_received:
-	    translation = translator.translate(text, dest = 'en')
+	    translation = translator.translate(text)
 	    answer = llm_chain.run(translation)
-	    trans_answer = translator.translate(answer, dest='id')
+	    trans_answer = translator_1.translate(answer)
 	    obj = gTTS(trans_answer, lang='id', slow=False)
 	    obj.save('trans.mp3')
 	    audio_file = open('trans.mp3', 'rb')
