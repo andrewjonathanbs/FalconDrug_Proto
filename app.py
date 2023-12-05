@@ -37,9 +37,9 @@ st.write("Although the product is functional, it still needs more data to be a h
 
 st.image('og-image.jpg')
 
-st.write("Please go easy and wait patiently for the LLM to load if it took a long time to load.")
-st.write("Usually, it's fast but sometimes it load the responses slowly.")
-st.write("The AI can understand both English and Indonesian, but answers in Indonesian.")
+st.write("WARNING: In this prototype we're still using a free translation API, which function normally in a local setting...")
+st.write("...but becomes extremely weird if used from Streamlit. So if you got weird responses, please try saying the question again.")
+st.write("We apologize for the inconvenience.")
 
 c1,c2=st.columns(2)
 with c1:
