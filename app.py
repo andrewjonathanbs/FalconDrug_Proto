@@ -46,9 +46,9 @@ with c2:
 if text:       
     state.text_received.append(text)
     for text in state.text_received:
-	    translation = ts.google(text, from_language = 'id', to_language = 'en')
+	    translation = ts.bing(text, from_language = 'id', to_language = 'en')
 	    answer = llm_chain.run(translation)
-	    trans_answer = ts.google(answer, from_language = 'en', to_language = 'id')
+	    trans_answer = ts.bing(answer, from_language = 'en', to_language = 'id')
 	    obj = gTTS(trans_answer, lang='id', slow=False)
 	    obj.save('trans.mp3')
 	    audio_file = open('trans.mp3', 'rb')
