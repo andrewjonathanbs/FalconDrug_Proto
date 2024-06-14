@@ -12,7 +12,7 @@ translator = Translator(from_lang="ID",to_lang="EN")
 translator_1 = Translator(from_lang='EN',to_lang='ID')
 language = 'id'
 
-HUGGINGFACEHUB_API_TOKEN = os.getenv('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')
+HUGGINGFACEHUB_API_TOKEN = os.getenv('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')
 repo_id = "tiiuae/falcon-7b-instruct"
 llm = HuggingFaceHub(huggingfacehub_api_token='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',
                      repo_id=repo_id,
