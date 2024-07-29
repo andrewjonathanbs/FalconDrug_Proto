@@ -13,7 +13,7 @@ translator_1 = Translator(from_lang='EN',to_lang='ID')
 language = 'id'
 
 HUGGINGFACEHUB_API_TOKEN = os.getenv('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')
-repo_id = "tiiuae/falcon-7b-instruct"
+repo_id = "mistralai/Mistral-7B-Instruct-v0.1"
 llm = HuggingFaceHub(huggingfacehub_api_token='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',
                      repo_id=repo_id,
                      model_kwargs={"temperature":0.7, "max_new_tokens":500})
