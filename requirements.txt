@@ -7,3 +7,4 @@ polyglot
 requests
 SpeechRecognition
 translate
+langchain_community
